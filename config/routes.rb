@@ -1,8 +1,11 @@
 Tradespring::Application.routes.draw do
   get "static_pages/home"
-
+  get "users/new"
   get "static_pages/about"
-
+  match '/signup',  to: 'users#new'
+  match '/about',   to: 'static_pages#about'
+  root to: 'static_pages#home'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
