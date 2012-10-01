@@ -1,6 +1,8 @@
 Tradespring::Application.routes.draw do
+  resources :users
+
   get "static_pages/home"
-  get "users/new"
+  
   get "static_pages/about"
   match '/signup',  to: 'users#new'
   match '/about',   to: 'static_pages#about'
