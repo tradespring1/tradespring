@@ -11,7 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001195553) do
+ActiveRecord::Schema.define(:version => 20121011002456) do
+
+  create_table "pcomments", :force => true do |t|
+    t.string   "body"
+    t.integer  "purchase_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "pcomments", ["purchase_id"], :name => "index_pcomments_on_purchase_id"
+  add_index "pcomments", ["user_id"], :name => "index_pcomments_on_user_id"
+
+  create_table "purchases", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "purchases", ["user_id", "created_at"], :name => "index_purchases_on_user_id_and_created_at"
+
+  create_table "sales", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sales", ["user_id", "created_at"], :name => "index_sales_on_user_id_and_created_at"
+
+  create_table "scomments", :force => true do |t|
+    t.string   "body"
+    t.integer  "sale_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "scomments", ["sale_id"], :name => "index_scomments_on_sale_id"
+  add_index "scomments", ["user_id"], :name => "index_scomments_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -81,7 +81,7 @@ p {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 98%;
   padding: 10px;
   height: auto !important;
   margin-bottom: 15px;
@@ -116,3 +116,64 @@ input, textarea, select, .uneditable-input {
   @extend .control-group;
   @extend .error;
  }
+
+ /* purchases */
+
+.purchases {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    margin-bottom: 20px;
+
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+  margin-bottom: 100px;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+/* sales */
+
+
+.sales {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    margin-bottom: 20px;
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 20px;
+    margin-bottom: 5px;
+  }
+}

@@ -1,0 +1,31 @@
+<li>
+  <%= link_to gravatar_for(purchase.user), purchase.user %>
+  <%= link_to purchase.user.name, purchase.user %>
+  <span class="content"><%= purchase.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(purchase.created_at) %> ago.
+  </span>
+  
+    <% purchase.pcomments.each do |pcomment| %>
+   
+       <div class="box">
+         <b>Vendor:</b>
+         <br>
+         <b>Deal:</b>
+         <%= pcomment.body %>
+       </div>
+
+    <% end %>
+  
+
+  
+  <%= form_for([purchase, purchase.pcomments.build], :html => { :id => "blah_form" }) do |f| %>
+  
+    <div class="field">
+      <h4>What deal are you offering?</h4>
+      <%= f.text_field :body %>
+    </div>
+    
+  <% end %>
+
+</li>

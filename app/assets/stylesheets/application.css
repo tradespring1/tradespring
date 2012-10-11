@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
 */
+
+#sales {
+    float: left;
+    background: #FFFFFF;
+    width: 465px;
+}
+
+#purchases {
+    background: #33CCFF;
+    width: 465px;
+    float: left;
+    border-right:thick double;
+}
+​

@@ -1,15 +1,25 @@
 Tradespring::Application.routes.draw do
-  resources :users
+  resources :users do
+    resources :pcomments
+    resources :scomments
+  end
   resources :sessions, only: [:new, :create, :destroy]
+  resources :purchases do
+    resources :pcomments
+  end
+  resources :sales do
+    resources :scomments
+  end
 
   get "static_pages/home"
   
   get "static_pages/about"
 
   match '/signup',  to: 'users#new'
-  match '/signin', to: 'sessions#new' 
+  match '/signin',  to: 'sessions#new' 
   match '/about',   to: 'static_pages#about'
-  
+  match '/signout', to: 'sessions#destroy', via: :delete
+
   root to: 'static_pages#home'
   
   # The priority is based upon order of creation:

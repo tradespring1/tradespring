@@ -1,2 +1,39 @@
 <% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
+
+
+<div id="purchases">
+
+<%= form_for(@purchase) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :content, placeholder: "Compose new purchase..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+
+<% if @user.purchases.any? %>
+      <h3>Purchases (<%= @user.purchases.count %>)</h3>
+      <ol class="purchases">
+        <%= render @purchases %>
+      </ol>
+<% end %>
+</div>
+
+
+<div id="sales">
+
+<%= form_for(@sale) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :content, placeholder: "Compose new sale..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+
+<% if @user.sales.any? %>
+      <h3>Sales (<%= @user.sales.count %>)</h3>
+      <ol class="sales">
+        <%= render @sales %>
+      </ol>
+<% end %>
+</div>
