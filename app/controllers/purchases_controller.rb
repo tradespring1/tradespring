@@ -13,6 +13,7 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = current_user.purchases.build(params[:purchase])
+    @user= User.find(params[:id])
     if @purchase.save
       flash[:success] = "Purchase created!"
       redirect_to root_path
@@ -22,6 +23,7 @@ class PurchasesController < ApplicationController
   end
 
   def new
+    @user= User.find(params[:id])
     @purchase = Purchase.new(params[:purchase])
   end
 
