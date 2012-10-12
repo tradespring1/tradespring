@@ -28,4 +28,8 @@ class PurchasesController < ApplicationController
   def destroy
   end
 
+  def purchases
+    @user = User.find(params[:id])
+  end
+
 end

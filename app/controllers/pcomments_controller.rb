@@ -2,7 +2,8 @@ class PcommentsController < ApplicationController
   before_filter :signed_in_user
   def create
     @purchase = Purchase.find(params[:purchase_id])
-    @pcomment = Pcomment.new(params[:pcomment])
+    @pcomment = @purchase.pcomments.build(params[:pcomment])
+    @user= User.find(params[:id])
     @pcomment.purchase = @purchase
    
     if @pcomment.save
@@ -15,6 +16,7 @@ class PcommentsController < ApplicationController
 
   def new
     @pcomment=purchase.pcomments.new
+    @user= User.find(params[:id])
   end
    
   

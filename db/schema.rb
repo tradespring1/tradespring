@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011002456) do
+ActiveRecord::Schema.define(:version => 20121011085147) do
 
   create_table "pcomments", :force => true do |t|
     t.string   "body"
     t.integer  "purchase_id"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "user_id"
   end
 
   add_index "pcomments", ["purchase_id"], :name => "index_pcomments_on_purchase_id"
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20121011002456) do
   create_table "scomments", :force => true do |t|
     t.string   "body"
     t.integer  "sale_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
   add_index "scomments", ["sale_id"], :name => "index_scomments_on_sale_id"

@@ -19,12 +19,15 @@
   
 
   
-  <%= form_for([purchase, purchase.pcomments.build], :html => { :id => "blah_form" }) do |f| %>
+  <%= form_for([purchase, purchase.pcomments.build(:user_id => @user.user_id)], :html => { :id => "blah_form" }) do |f| %>
   
     <div class="field">
       <h4>What deal are you offering?</h4>
       <%= f.text_field :body %>
+      
+ 
     </div>
+
     
   <% end %>
 
