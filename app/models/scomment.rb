@@ -4,6 +4,4 @@ class Scomment < ActiveRecord::Base
   attr_accessible :body
   validates :body, presence: true, length: { maximum: 140 }
   validates :sale_id, presence: true
-  
-  
 end

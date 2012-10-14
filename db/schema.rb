@@ -11,18 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011085147) do
+ActiveRecord::Schema.define(:version => 20121013023652) do
 
   create_table "pcomments", :force => true do |t|
-    t.string   "body"
-    t.integer  "purchase_id"
     t.integer  "user_id"
+    t.integer  "purchase_id"
+    t.string   "body",        :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "pcomments", ["purchase_id"], :name => "index_pcomments_on_purchase_id"
-  add_index "pcomments", ["user_id"], :name => "index_pcomments_on_user_id"
+  add_index "pcomments", ["user_id", "purchase_id"], :name => "index_pcomments_on_user_id_and_purchase_id"
 
   create_table "purchases", :force => true do |t|
     t.string   "content"
@@ -44,14 +43,11 @@ ActiveRecord::Schema.define(:version => 20121011085147) do
 
   create_table "scomments", :force => true do |t|
     t.string   "body"
-    t.integer  "sale_id"
     t.integer  "user_id"
+    t.integer  "sale_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "scomments", ["sale_id"], :name => "index_scomments_on_sale_id"
-  add_index "scomments", ["user_id"], :name => "index_scomments_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

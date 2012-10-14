@@ -2,7 +2,8 @@ class ScommentsController < ApplicationController
   before_filter :signed_in_user
   def create
     @sale = Sale.find(params[:sale_id])
-    @scomment = Scomment.new(params[:scomment])
+    @scomment = @sale.scomments.build(params[:scomment])
+    @scomment.user_id = current_user.id
     @scomment.sale = @sale
    
     if @scomment.save

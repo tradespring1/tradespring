@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-
+<%= mail_to(@user.email, name="email this user", :encode => "javascript") %>
 
 <div id="purchases">
 

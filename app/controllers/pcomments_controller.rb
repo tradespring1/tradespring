@@ -3,7 +3,7 @@ class PcommentsController < ApplicationController
   def create
     @purchase = Purchase.find(params[:purchase_id])
     @pcomment = @purchase.pcomments.build(params[:pcomment])
-    @user= User.find(params[:id])
+    @pcomment.user_id = current_user.id
     @pcomment.purchase = @purchase
    
     if @pcomment.save
@@ -16,7 +16,7 @@ class PcommentsController < ApplicationController
 
   def new
     @pcomment=purchase.pcomments.new
-    @user= User.find(params[:id])
+   
   end
    
   

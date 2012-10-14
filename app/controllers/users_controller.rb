@@ -40,12 +40,6 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@purchases= @user.purchases
   	@sales= @user.sales
- 
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_url
-  end
 
   def update
     @user = User.find(params[:id])
@@ -56,6 +50,12 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+ 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to users_url
   end
 
   private

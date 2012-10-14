@@ -9,11 +9,12 @@ class PurchasesController < ApplicationController
   def home 
   	@purchases = Purchase.all
   	@sales = Sale.all
+    @user= User.find(params[:id])
   end
 
   def create
     @purchase = current_user.purchases.build(params[:purchase])
-    @user= User.find(params[:id])
+    
     if @purchase.save
       flash[:success] = "Purchase created!"
       redirect_to root_path
@@ -30,8 +31,5 @@ class PurchasesController < ApplicationController
   def destroy
   end
 
-  def purchases
-    @user = User.find(params[:id])
-  end
 
 end

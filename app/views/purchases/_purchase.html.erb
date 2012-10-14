@@ -10,7 +10,7 @@
    
        <div class="box">
          <b>Vendor:</b>
-         <br>
+          <%= link_to pcomment.user.name, pcomment.user %><br>
          <b>Deal:</b>
          <%= pcomment.body %>
        </div>
@@ -18,8 +18,7 @@
     <% end %>
   
 
-  
-  <%= form_for([purchase, purchase.pcomments.build(:user_id => @user.user_id)], :html => { :id => "blah_form" }) do |f| %>
+  <%= form_for([purchase, purchase.pcomments.build]) do |f| %>
   
     <div class="field">
       <h4>What deal are you offering?</h4>
