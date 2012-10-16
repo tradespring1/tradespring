@@ -8,6 +8,7 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
+<h3>Items that people want to purchase</h3>
   <ol class="purchases">
     <%= render @purchases unless @purchases.nil? %>
   </ol>
@@ -20,6 +21,7 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
+<h3>Items that people want to sell</h3>
   <ol class="sales">
     <%= render @sales unless @sales.nil? %>
   </ol>

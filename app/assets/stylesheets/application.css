@@ -16,12 +16,23 @@
     float: left;
     background: #FFFFFF;
     width: 465px;
+    border-left:thick-double;
 }
 
 #purchases {
-    background: #33CCFF;
+    background: #FFFFFF;
     width: 465px;
     float: left;
     border-right:thick double;
 }
+
+#purchase_box {
+	background: #87CEFA;
+	border-radius: 15px;
+	
+}
 ​
+#sale_box {
+	background: #87CEFA;
+	border-radius:15px;
+}

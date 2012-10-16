@@ -15,7 +15,7 @@ class SalesController < ApplicationController
     @sale = current_user.sales.build(params[:sale])
     if @sale.save
       flash[:success] = "Sale created!"
-      redirect_to root_url
+      redirect_to :back
     else
       render 'static_pages/home'
     end
@@ -26,5 +26,9 @@ class SalesController < ApplicationController
   end
 
   def destroy
+    @sale=Sale.find(params[:id])
+    @sale.destroy
+    redirect_to root_path, :flash => { :success => "Sale deleted!" }
   end
+
 end

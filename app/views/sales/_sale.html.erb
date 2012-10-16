@@ -1,3 +1,4 @@
+<div id="sale_box">
 <li>
   <%= link_to gravatar_for(sale.user), sale.user %>
   <%= link_to sale.user.name, sale.user %>
@@ -5,29 +6,36 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(sale.created_at) %> ago.
   </span>
+  <% if current_user?(@user) %>
+    <td>
+      <%= link_to "delete", sale, :method => :delete,
+                                       :confirm => "You sure?",
+                                       :title => sale.content %>
+    </td>
+  <% end %>
+  <br><br><br>
   
     <% sale.scomments.each do |scomment| %>
    
-       <div class="box">
-         <b>Vendor:</b>
-         <%= link_to scomment.user.name, scomment.user %><br>
-         <b>Deal:</b>
-         <%= scomment.body %>
+       <div id="box">
+         
+         <%= link_to scomment.user.name, scomment.user %>
+         
+         <%= word_wrap(scomment.body, :line_width => 8) %>
        </div>
 
     <% end %>
   
 
-  
   <%= form_for([sale, sale.scomments.build], :html => { :id => "blah_form" }) do |f| %>
   
     <div class="field">
-      <h4>What deal are you offering?</h4>
-      <%= f.text_field :body %>
+      
+      <%= f.text_field :body, placeholder: "Make an offer", :maxlength=>"254" %>
     </div>
-    <div class="actions">
-      <%= f.submit "Submit"%>
-    </div>
+    
   <% end %>
 
+
 </li>
+</div>

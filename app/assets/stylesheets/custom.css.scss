@@ -48,9 +48,22 @@ h2 {
   color: #999;
 }
 
+h3 {
+  text-align:center;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+p1 {
+  font-size: 0.9em;
+  line-height:1.5em;
+}
+
+#indent {
+  margin-left:30px;
 }
 
 /* header */
@@ -133,6 +146,12 @@ input, textarea, select, .uneditable-input {
 .content {
   display: block;
 }
+
+#body{
+  display: block;
+}
+
+
 .timestamp {
   color: $grayLight;
   margin-bottom: 100px;
@@ -164,8 +183,14 @@ aside {
 .content {
   display: block;
 }
+
+#body {
+  display:block;
+}
+
 .timestamp {
   color: $grayLight;
+  margin-bottom:10px;
 }
 .gravatar {
   float: left;
@@ -177,3 +202,9 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+#sale_box {
+  background: #98FB98;
+  border-radius:15px;
+}
+

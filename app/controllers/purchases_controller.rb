@@ -17,9 +17,9 @@ class PurchasesController < ApplicationController
     
     if @purchase.save
       flash[:success] = "Purchase created!"
-      redirect_to root_path
+      redirect_to :back
     else
-      render 'static_pages/home'
+      render "users#show"
     end
   end
 
@@ -29,6 +29,9 @@ class PurchasesController < ApplicationController
   end
 
   def destroy
+    @purchase=Purchase.find(params[:id])
+    @purchase.destroy
+    redirect_to :back, :flash => { :success => "Purchase deleted!" }
   end
 
 
